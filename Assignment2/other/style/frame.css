@@ -1,0 +1,65 @@
+/* Rules for all web pages */
+
+
+.photo{
+	float:left; 
+	width:25%;
+	margin-left:80px;
+	margin-top:50px;
+	}
+.content{
+	float:right; 
+	width:55%;
+	margin-right:80px;
+	color:#003300;
+}
+
+body{
+background-color: white;
+padding: 10px;
+margin-right:50px;
+margin-left:50px;
+}
+
+h1, h2{
+margin-right:50px;
+margin-left:50px;
+background-color: Linen;
+padding: 10px;
+text-align: center;
+}
+
+h3{
+margin-right:50px;
+margin-left:50px;
+background-color: Linen;
+padding: 10px;
+text-align: left;
+text-indent:3em
+}
+
+p {
+color:#003300;
+padding: 0px 100px;
+text-align:justify;
+margin-right:50px;
+margin-left:50px;
+}
+
+.plan{
+padding: 0px 100px;
+text-align:justify;
+margin-right:50px;
+margin-left:50px;
+}
+
+.left {
+	text-align: left;
+	margin-right:50px;
+    margin-left:50px;
+}
+.homeq {
+	text-align: justify;
+	font-size: large;
+	font-weight: normal;
+}

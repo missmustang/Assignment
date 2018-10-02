@@ -1,0 +1,274 @@
+<link rel="stylesheet" type="text/css" href="style/SPStyle.css"/>
+<link rel="stylesheet" href="style/bootstrap-grid.css">
+<link rel="stylesheet" href="style/bootstrap.css">
+
+<div class="text-responsive-md">
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="Home.html">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Assignment</li>
+  </ol>
+</nav>
+</div>
+
+<h2>Personal Assignment Calendar</h2>
+
+<html><head>
+<style>
+.plan{
+	padding: 0px 50px;
+	text-align:justify;
+	margin-left:20px;
+	color:#003300;
+}
+
+.selected{ text-decoration: line-through; 
+			background-color: #b0e0e6;
+			padding: 0px 50px;
+			text-align:justify;
+			margin-right:20px;
+			margin-left:20px;}
+			
+.chosen {color: black; 
+		font-size: 12pt; 
+		list-style-type: circle;
+		margin-left:100px;}
+</style>
+
+<script type="text/javascript" language="JavaScript">
+start=true;
+
+function date() {
+var student = prompt("Student name?", "");
+var now = new Date();
+var tnode1=document.createTextNode("Assignment Calendar of  "+ student );
+var tnode2=document.createTextNode(" updated in ("+(now.getMonth()+1)+"/"+now.getDate()+"/"+(now.getYear()+1900)+")");
+document.getElementById("info").appendChild(tnode1);
+document.getElementById("info").appendChild(tnode2);
+}
+
+
+function selectunf(obj){
+	if (start) {date(); start=false;}
+	if (obj.getAttribute("class")=="selected") 
+		{alert("Cannot choose selected assignment")
+		return;}
+	id = obj.getAttribute("id");
+	if (id < 9)
+		{type = document.getElementById("WTS");
+		amount = document.getElementById("wtsc");
+		}
+	else if (id < 17)
+		{type = document.getElementById("DM");
+		amount = document.getElementById("dmc");}
+	else if (id < 27)
+			{
+			type = document.getElementById("SC");
+			amount = document.getElementById("scc");	
+			}
+	else
+		{type = document.getElementById("DA");
+		amount = document.getElementById("dac");}
+	
+	addchild = obj.cloneNode(true);
+	addchild.setAttribute("onclick", "deselectunf(this)");
+	addchild.setAttribute("class", "chosen");
+	type.appendChild(addchild);
+	count = type.childNodes.length
+	tncount=document.createTextNode(count);
+	amount.appendChild(tncount);
+	amount.removeChild(amount.childNodes[0]);
+	obj.setAttribute("class", "selected");
+}
+
+function deselectunf(obj){
+nid = obj.getAttribute("id");
+	var choose = prompt("Do you want to remove it to the 'F'inished Assignment or 'C'ancel this Assignment", "");
+		if (choose.toUpperCase().charAt(0)=="F")
+			{if (nid < 9)
+		{type = document.getElementById("NWTS");
+		amount = document.getElementById("nwtsc");
+		}
+	else if (nid < 17)
+		{type = document.getElementById("NDM");
+		amount = document.getElementById("ndmc");}
+	else if (nid < 27)
+			{
+			type = document.getElementById("NSC");
+			amount = document.getElementById("nscc");	 
+			}
+	else
+		{type = document.getElementById("NDA");
+		amount = document.getElementById("ndac");}
+		
+		addchild = obj.cloneNode(true);
+		addchild.setAttribute("onclick", "deselectf(this)");
+		addchild.setAttribute("class", "chosen");
+	
+		type.appendChild(addchild);
+		count = type.childNodes.length
+		tncount=document.createTextNode(count);
+		amount.removeChild(amount.childNodes[0]);
+		amount.appendChild(tncount);
+		type = obj.parentNode
+		type.removeChild(obj);
+		count = type.childNodes.length
+		tncount=document.createTextNode(count);
+		countid = type.getAttribute("id").toLowerCase()+"c"; 
+		amount=document.getElementById(countid);
+		amount.removeChild(amount.childNodes[0]);
+		amount.appendChild(tncount);
+		obj.setAttribute("class", "selected");
+		
+		}
+		else
+			{
+			
+			type = obj.parentNode
+			type.removeChild(obj);
+			count = type.childNodes.length
+			tncount=document.createTextNode(count);
+			countid = type.getAttribute("id").toLowerCase()+"c"; 
+			amount=document.getElementById(countid);
+			amount.removeChild(amount.childNodes[0]);
+			amount.appendChild(tncount);
+			back = document.getElementById(nid);
+			back.setAttribute("class", "plan");
+			}
+			
+}
+
+function deselectf(obj){
+
+	
+			nid = obj.getAttribute("id");
+			type = obj.parentNode
+			type.removeChild(obj);
+			countid = type.getAttribute("id").toLowerCase()+"c"; 
+			count = type.childNodes.length
+			tncount=document.createTextNode(count);
+			amount=document.getElementById(countid);
+			amount.removeChild(amount.childNodes[0]);
+			amount.appendChild(tncount);
+			back = document.getElementById(nid);
+			back.setAttribute("class", "plan");
+			
+			
+}
+
+</script>
+</head><body>
+
+<div id = "intro" class="plan">
+
+This Page is designed to help myself schedule my assignments.
+I take four courses, Web Technologies and Standarts, Database Management, Social Computing, and Data Analytics in this fall term.
+All assignments, exams, and projects have already added in the list. The left list is unfinished assignment list.
+The right list is finished assignment list. The bottom list is the information of all assignments, including its name and its due date.
+Selecting a assignment will add it to the unfinished list. All assignments listed in unfinished assignment list can be either canceled or moved into finished assignment list.
+And the assignments listed in finished list can also be canceled and they will be moved back to the assignment information list. 
+
+</div>
+
+<div>
+<h3 id = "info" width="100%" class="center"></h3></center>
+</div>
+
+
+<div class="leftcontent">
+<h4>Unfinished Assignment</h4>   
+<h3>Web Technologies and Standards(<span id = "wtsc">0</span>)</h3>
+<div id ="WTS"></div>
+
+<h3>Database Management(<span id = "dmc">0</span>)</h3>
+<div id ="DM"></div>
+
+<h3>Social Computing(<span id = "scc">0</span>)</h3>
+<div id ="SC"></div>
+
+<h3>Data Analytics(<span id = "dac">0</span>)</h3>
+<div id ="DA"></div>
+
+
+<br>
+<br>
+<div class="left">
+<h3>WEB TECHNOLOGIES AND STANDARDS</h3>
+<ul>
+<li id = "1" class = "plan" onclick=selectunf(this)>Assignment1 Due-0917</li>
+<li id = "2" class = "plan" onclick=selectunf(this)>Assignment2 Due-1001 </li>
+<li id = "3" class = "plan" onclick=selectunf(this)>Assignment3 Due-1008</li>
+<li id = "4" class = "plan" onclick=selectunf(this)>Assignment4 Due-1105</li>
+<li id = "5" class = "plan" onclick=selectunf(this)>Assignemtn5 Due-1112</li>
+<li id = "6" class = "plan" onclick=selectunf(this)>Project-Phase1 Due-1005</li>
+<li id = "7" class = "plan" onclick=selectunf(this)>Project-Phase2 Due-1022</li>
+<li id = "8" class = "plan" onclick=selectunf(this)>Project-Final Due-1126</li>
+</ul>
+
+<h3>DATABASE MANAGEMENT</h3>
+<ul>
+<li id = "9" class = "plan" onclick=selectunf(this)>Assignment1 Due-1002</li>
+<li id = "10" class = "plan" onclick=selectunf(this)>Assignment2 Due-1009</li>
+<li id = "11" class = "plan" onclick=selectunf(this)>Assignemtn3 Due-1127</li>
+<li id = "12" class = "plan" onclick=selectunf(this)>Project-Assigned Due-1002</li>
+<li id = "13" class = "plan" onclick=selectunf(this)>Project-Group List Due-1009</li>
+<li id = "14" class = "plan" onclick=selectunf(this)>Project-Report Due-1204</li>
+<li id = "15" class = "plan" onclick=selectunf(this)>Midterm-Exam Data-1023</li>
+<li id = "16" class = "plan" onclick=selectunf(this)>Final-Exam Data-1211</li>
+</ul>
+
+<h3>SOCIAL COMPUTING</h3>
+<ul>
+<li id = "17" class = "plan" onclick=selectunf(this)>Quiz1 Due-0913</li>
+<li id = "18" class = "plan" onclick=selectunf(this)>Quiz2 Due-1011</li>
+<li id = "19" class = "plan" onclick=selectunf(this)>Quiz3 Due-1108</li>
+<li id = "20" class = "plan" onclick=selectunf(this)>Assignment-Reading1 Due-1004</li>
+<li id = "21" class = "plan" onclick=selectunf(this)>Assignment-Reading2 Due-1206</li>
+<li id = "22" class = "plan" onclick=selectunf(this)>Assignment-Software-Analysis Due-1018</li>
+<li id = "23" class = "plan" onclick=selectunf(this)>Assignment-Data-Analysis Due-NULL</li>
+<li id = "24" class = "plan" onclick=selectunf(this)>Project-Proposal Due-0927</li>
+<li id = "25" class = "plan" onclick=selectunf(this)>Project-Midterm Due-1025</li>
+<li id = "26" class = "plan" onclick=selectunf(this)>Project-Final Due-1213</li>
+</ul>
+
+<h3>DATA ANALYTICS</h3>
+<ul>
+<li id = "27" class = "plan" onclick=selectunf(this)>Assignment1 Due-0920</li>
+<li id = "28" class = "plan" onclick=selectunf(this)>Assignment2 Due-1004</li>
+<li id = "29" class = "plan" onclick=selectunf(this)>Assignment3 Due-1011</li>
+<li id = "30" class = "plan" onclick=selectunf(this)>Assignment4 Due-1018</li>
+<li id = "31" class = "plan" onclick=selectunf(this)>Assignment5 Due-1101</li>
+<li id = "32" class = "plan" onclick=selectunf(this)>Assignment6 Due-1108</li>
+<li id = "33" class = "plan" onclick=selectunf(this)>Assignment7 Due-1115</li>
+<li id = "34" class = "plan" onclick=selectunf(this)>Assignment8 Due-1129</li>
+<li id = "35" class = "plan" onclick=selectunf(this)>Assignment9 Due-1206</li>
+<li id = "36" class = "plan" onclick=selectunf(this)>Midterm-Exam Due-1213</li>
+<li id = "37" class = "plan" onclick=selectunf(this)>Final-Exam Due-1018</li>
+<li id = "38" class = "plan" onclick=selectunf(this)>Project-Midterm-Report Due-1025</li>
+<li id = "39" class = "plan" onclick=selectunf(this)>Project-Final Due-1204</li>
+</ul>
+</div>
+
+</div>
+
+
+<div class="rightcontent">
+<blockquote>
+<h4>Finished Assignment</h4>   
+<h3>Web Technologies and Standards(<span id = "nwtsc">0</span>)</h3>
+<div id ="NWTS"></div>
+
+<h3>Database Management(<span id = "ndmc">0</span>)</h3>
+<div id ="NDM"></div>
+
+<h3>Social Computing(<span id = "nscc">0</span>)</h3>
+<div id ="NSC"></div>
+
+<h3>Data Analytics(<span id = "ndac">0</span>)</h3>
+<div id ="NDA"></div>
+</blockquote>
+</div>
+
+
+</body></html>
+ 

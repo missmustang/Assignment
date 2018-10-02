@@ -1,0 +1,53 @@
+/* Rules for all web pages */
+
+header{
+	Color:DeepSkyBlue;
+	height: 50px;
+	weight: 40px;
+	background-color: Moccasin;
+	text-align:center;
+	font-size: 40px;
+	margin-right:50px;
+    margin-left:50px;
+	font-family: Tahoma;
+}
+
+body{
+background-color: white;
+padding: 10px;
+	margin-right:50px;
+    margin-left:50px;
+}
+
+h1, h2{
+background-color: Moccasin;
+padding: 10px;
+text-align: center;
+	margin-right:50px;
+    margin-left:50px;
+}
+
+p {
+background-color: white;
+padding: 0px 20px;
+text-align:justify;
+	margin-right:50px;
+    margin-left:50px;
+}
+
+.photo{
+	float:left; 
+	width:20%;
+	margin-left:100px;
+	}
+.content{
+	float:right; 
+	width:60%;
+	margin-right:100px;
+}
+
+.center(
+width: 100%; 
+height: 30px; 
+text-align: center;
+)

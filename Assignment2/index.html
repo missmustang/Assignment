@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="CM">
+<meta name="description" content="Home Page">
+<title>CM's HomePage</title>
+<link rel="stylesheet" href="style/PageStyle.css">
+<link rel="stylesheet" href="style/bootstrap-grid.css">
+<link rel="stylesheet" href="style/bootstrap.css">
+<style>
+   .p1 {font-family: Helvetica,sans-serif;}
+   .p2 {font-family: "Times New Roman", serif;}
+   .p3 {
+   font-family: cursive;
+   line-height: 1.2em;
+   }
+
+   .button {margin:0px 70px; border:none; color:black; background-color:white; font-size:20px;}
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+<br>
+<div class="row">
+<div class="col-xs-3 col-md-2">
+<input type="button" class="btn btn-light" value="Home" style="width:80px;height:40px" onclick="javascript:document.getElementById('Content').src='other/Home.html'">
+</div>
+<div class="col-xs-3 col-md-2">
+<input type="button" class="btn btn-light" value="Class" style="width:80px;height:40px" onclick="javascript:document.getElementById('Content').src='other/Class.html'"/>
+</div>
+<div class="col-xs-3 col-md-2">
+<input type="button" class="btn btn-light" value="School" style="width:80px;height:40px" onclick="javascript:document.getElementById('Content').src='other/School.html'"/>
+</div>
+<div class="col-xs-3 col-md-2">
+<input type="button" class="btn btn-light" value="CV" style="width:80px;height:40px" onclick="javascript:document.getElementById('Content').src='other/CV.html'"/>
+</div>
+<div class="col-xs-3 col-md-2">
+<input type="button" class="btn btn-light" value="Contact" style="width:80px;height:40px" onclick="javascript:document.getElementById('Content').src='other/Contact.html'"/>
+</div>
+<div class="col-xs-3 col-md-2">
+<input type="button" class="btn btn-light" value="Assignment" style="width:100px;height:40px" onclick="javascript:document.getElementById('Content').src='other/Assignment-Calendar.html'"/>
+</div>
+</div>
+</div>
+
+<div class="container">
+<img class="img-responsive center-block"  src="images/header2.jpg" alt="header"  height="80%">
+<iframe id="Content" src="other/Welcome.html" width="100%" height="1200" frameborder="0" ></iframe>
+</div>
+
+<div>
+<svg  height="400" width="400">
+<circle cx="92" cy="387" r="10"  fill="none" stroke="Plum" stroke-width="5" />
+</svg>
+</div>
+
+<div align="left">
+<a class="button" onclick="javascript:document.getElementById('Content').src='Other/Home.html'">Back</a>
+</div>
+</body>
+</html>

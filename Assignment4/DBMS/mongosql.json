@@ -1,0 +1,8 @@
+{"_id":{"$oid":"5c01c9892cea5c5830a38f14"},"ID":"1","Name":"apple","Quantity":"23"}
+{"_id":{"$oid":"5c0201bf2cea5c5830a38f15"},"ID":"2","Name":"banana","Quantity":"30"}
+{"_id":{"$oid":"5c0201cc2cea5c5830a38f16"},"ID":"3","Name":"peach","Quantity":"12"}
+{"_id":{"$oid":"5c0201df2cea5c5830a38f17"},"ID":"4","Name":"watermelon","Quantity":"19"}
+{"_id":{"$oid":"5c0201f12cea5c5830a38f18"},"ID":"5","Name":"mango","Quantity":"7"}
+{"_id":{"$oid":"5c0202002cea5c5830a38f19"},"ID":"6","Name":"lemon","Quantity":"25"}
+{"_id":{"$oid":"5c0202102cea5c5830a38f1a"},"ID":"7","Name":"cherry","Quantity":"4"}
+{"_id":{"$oid":"5c02021a2cea5c5830a38f1b"},"ID":"8","Name":"orange","Quantity":"42"}

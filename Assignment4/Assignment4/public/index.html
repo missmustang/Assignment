@@ -1,0 +1,50 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>Assignment4</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<script src="js/angular.min.js"></script>
+	<script src="controllers/controller.js"></script>
+</head>
+
+<body>
+	<div class="container"> 
+		<div ng-app="myapp">
+		<div ng-controller="AppCtrl">
+		<h1>Assignment 4</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Quantity</th>
+					<th>Action</th>
+					<th>&nbsp</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input class="form-control" ng-model="product.ID"></td>
+					<td><input class="form-control" ng-model="product.Name"></td>
+					<td><input class="form-control" ng-model="product.Quantity"></td>
+					<td><button class="btn btn-primary" ng-click="addProduct()">Add Product</button></td>
+					<td><button class="btn btn-info" ng-click="update()">Update</button></td>
+					<td><button class="btn btn-info" ng-click="find()">Find</button></td>
+				</tr>
+				<tr ng-repeat="product in productlist">
+					<td>{{product.ID}}</td>
+					<td>{{product.Name}}</td>
+					<td>{{product.Quantity}}</td>
+					<td><button class="btn btn-danger" ng-click="remove(product._id)">Remove</button></td>
+					<td><button class="btn btn-warning" ng-click="edit(product._id)">Edit</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+	</div>
+
+</body>
+</html>
